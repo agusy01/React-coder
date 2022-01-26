@@ -1,14 +1,22 @@
 import './App.css';
 
 import NavBar from './components/NavBar';
-
+import Item from './components/ItemListContainer';
 
 
 function App() {
-  return (
-    <div className="App">
-      <NavBar img='https://images3.alphacoders.com/666/thumb-350-666452.png' />
-    </div>
+  return (<>
+    <header className="header-content">
+      <div className="App">
+        <NavBar img='../Logo.png' />
+      </div>
+    </header>
+    <main>
+      <div>
+        <Item greeting="Hola, mi nombre es Agustin"/>
+      </div>
+    </main>
+    </>
   );
 }
 
