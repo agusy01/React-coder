@@ -1,10 +1,10 @@
 import './NavBar.css';
-import CartWidget from './CartWidget';
+import CustomizedBadges from './CartWidget/CartWidget';
 
-const NavBar = (props) => {
+const NavBar = () => {
 return <nav className="Navigation">
             <div>
-                <img src={props.img} alt="Logo" className="Logo" /> 
+                <a href='..'><img src="../Logo.png" alt="Logo" className="Logo" /> </a>
             </div>
             <div>
                 <ul>
@@ -22,7 +22,7 @@ return <nav className="Navigation">
                     <li><a href=".">MI CUENTA</a></li>
                     <li><a href=".">INICIAR SESION</a></li>
                 </ul>
-                <CartWidget />
+                <CustomizedBadges />
             </div>
         </nav>
             
