@@ -1,0 +1,16 @@
+.Card{
+    display: flex;
+    margin: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.Products{
+    padding: 20px;
+    width: 300px;
+    height: 500px;
+}
+
+.css-1ri6ub7-MuiPaper-root-MuiCard-root{
+    height: 500px;
+}

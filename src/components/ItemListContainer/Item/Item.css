@@ -1,0 +1,19 @@
+.Image{
+    width: 300px;
+    height: 300px;
+    border-bottom: 2px solid gray;
+}
+
+.UserComponent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 500px;
+}
+
+.css-46bh2p-MuiCardContent-root{
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+    justify-content: space-around;
+}
