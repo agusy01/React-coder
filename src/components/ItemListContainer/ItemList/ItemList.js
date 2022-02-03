@@ -5,8 +5,6 @@ import './ItemList.css';
 const ItemList = () => {
     const [product, setProduct] = useState([]);
     
-    console.log(product)
-    
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
         .then((response) => response.json())
