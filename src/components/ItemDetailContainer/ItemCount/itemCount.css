@@ -3,11 +3,11 @@
     justify-content: space-between;
     border-radius: 21px 21px 21px 21px;
     border: 3px solid #e0e0e0;
-    margin: auto;
-    width: fit-content;
+    margin: 20px;
+    width: 200px;
 }
 
 .container-count{
     display: flex;
+    justify-content: space-evenly;
 }
-

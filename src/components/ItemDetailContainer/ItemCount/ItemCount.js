@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
+import { IconButton, Button} from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import { IconButton} from '@mui/material';
 import RemoveIcon from '@mui/icons-material/Remove';
-import Button from '@mui/material/Button';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Swal from 'sweetalert2';
-import './ItemCount.css';
+import './itemCount.css';
 
 
 
@@ -39,7 +38,7 @@ const ItemCount = ({stock, initial, name}) => {
                 <AddIcon sx={{ fontSize: 24 }} />
             </IconButton>
             </div>
-            <Button onClick={onAdd}>
+            <Button onClick={onAdd} >
                 <p>Añadir al carrito</p> 
                 <AddShoppingCartIcon />
             </Button>
