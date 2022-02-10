@@ -1,12 +1,14 @@
 .ImagenDetail{
     width: 650px;
     height: 650px;
+    margin: 2rem;
 }
 
 .DetailBox{
     display: flex;
     justify-content: space-evenly;
-    margin: auto;
+    background-color: #fffaf0;
+    width: 100%;
 }
 
 .DetailText{
@@ -14,4 +16,5 @@
     flex-direction: column;
     justify-content: space-around;
     width: 700px;
+    max-height: 650px;
 }

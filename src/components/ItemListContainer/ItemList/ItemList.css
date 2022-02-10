@@ -1,8 +1,9 @@
 .Card{
     display: flex;
-    margin: 30px;
+    padding: 2rem;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #fffaf0;
 }
 
 .Products{

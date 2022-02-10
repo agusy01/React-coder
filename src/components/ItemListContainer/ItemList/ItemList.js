@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 import './ItemList.css';
 import Spinner from '../../Spinner/Spinner'
+import axios from 'axios';
+
 
 
 const ItemList = () => {
@@ -13,22 +15,27 @@ const ItemList = () => {
     }, 2000)
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-        .then((response) => response.json())
-        .then((json) => setProduct(json));
+        axios('https://fakestoreapi.com/products')
+        .then((res) => setProduct(res.data))
     }, []);
 
     return (
-        <div className='Card'>
+        <div>
+            {loading ? (
+                <Spinner />
+            ) : (
+            <div className='Card'>
             {product.map((product) =>{
                 return (<div key={product.id} className='Products'>
-                    {loading ? <Spinner/> : <Item data={product}/>}
+                        <Item data={product} />
                     </div>
                 )
             })}
+            </div>)}
         </div>
     );
 }
 
 
 export default ItemList;
+

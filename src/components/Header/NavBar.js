@@ -1,26 +1,46 @@
 import './NavBar.css';
 import CustomizedBadges from './CartWidget/CartWidget';
+import { Link} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const NavBar = () => {
+    const [category, setCategory] = useState([]);
+
+    useEffect(() => {
+        axios(`https://fakestoreapi.com/products/categories`)
+        .then((res) => setCategory(res.data))
+    }, []);
+
+
 return <nav className="Navigation">
             <div>
                 <a href='..'><img src="../Logo.png" alt="Logo" className="Logo" /> </a>
             </div>
-            <div>
+            <div className='DivNav'>
                 <ul>
-                    <li><a href=".">NEW ARRIVALS</a></li>
-                    <li><a href=".">HOMBRES</a></li>
-                    <li><a href=".">NIÑOS</a></li>
-                    <li><a href=".">SURF</a></li>
-                    <li><a href=".">SNOWBOARDING</a></li>
-                    <li><a href=".">SALE</a></li>
-                    <li><a href=".">COMUNIDAD</a></li>
+                    <Link to='/electronics' className='Link'>
+                        {category[0]}
+                    </Link>
+                    <Link to='/jewelry' className='Link'>
+                        {category[1]}
+                    </Link>
+                    <Link to="/men's%20clothing" className='Link'>
+                        {category[2]}
+                    </Link>
+                    <Link to="/women's%20clothing" className='Link'>
+                        {category[3]}
+                    </Link>
+                    <Link to='/About' className='Link'>
+                        About Us
+                    </Link>
                 </ul>
             </div>
-            <div className="div-fix">
+            <div className="DivFix">
                 <ul>
-                    <li><a href=".">MI CUENTA</a></li>
-                    <li><a href=".">INICIAR SESION</a></li>
+                    <Link to='/Login' className='Link Login'>
+                        <strong>Login</strong>
+                    </Link>
                 </ul>
                 <CustomizedBadges />
             </div>

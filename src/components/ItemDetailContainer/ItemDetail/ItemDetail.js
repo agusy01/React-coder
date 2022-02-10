@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Typography  } from '@mui/material/';
 import ItemCount from '../ItemCount/ItemCount';
-
-
 import './ItemDetail.css';
 
 

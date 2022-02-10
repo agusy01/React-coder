@@ -1,55 +1,45 @@
 .Logo{
-    mix-blend-mode: multiply;
-    filter: brightness(1.3);
-    height: 43px;
+    filter: brightness(1.5);
+    max-width: 6rem;
     width: auto;
 }
 
-.div-fix{
+.DivFix{
     display: flex;
     align-items: center;
+}
+
+.DivNav{
+    width: 800px;
+}
+
+.Login{
+    padding: 0px 20px;
 }
 
 .Navigation{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    min-height: 50px;
-    padding: 20px;
+    min-height: 5rem;
     border-bottom: 1px solid lightgray;
 }
 
-.header-content{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    border: 1px solid #efefef;
+
+.Link{
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
 }
 
-body{
-    background-color: white;
+.Link:hover{
+    color: #F9E79F;
 }
 
 ul{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
+    padding: 0;
 }
 
-ul li{
-    list-style: none;
-    padding: 0px 12px;
-}
-
-ul li a{
-    text-decoration: none;
-    color: black;
-    font-family: 'Outfit', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-}
-
-ul li a:hover{
-    color: #EBECEE;
-
-}

@@ -1,6 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&family=Poppins:wght@300&display=swap');
+*{
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.03rem;
+}
 
 .App {
   text-align: center;
 }
+
+a{
+  text-decoration: none;
+}
+
+
 

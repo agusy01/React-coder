@@ -1,7 +1,8 @@
 .Image{
-    width: 280px;
     height: 280px;
     border-bottom: 2px solid gray;
+    object-fit: contain;
+    width: 100%;
 }
 
 .UserComponent{
@@ -21,3 +22,4 @@
     height: 40%;
     justify-content: space-around;
 }
+
