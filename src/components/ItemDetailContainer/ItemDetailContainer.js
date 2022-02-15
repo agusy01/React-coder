@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
     let id = useParams();
     
     let productId = id.id;
-    console.log(productId)
+    
     useEffect(() => {
         axios(`https://fakestoreapi.com/products/${productId}`)
         .then((res) => setDetail(res.data));
