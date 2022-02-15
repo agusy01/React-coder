@@ -15,6 +15,7 @@ import Electronics from './views/Electronics/Electronics';
 import Jewelry from './views/Jewelry/Jewelry';
 import MenClothing from './views/MenClothing/MenClothing';
 import WomenClothing from './views/WomenClothing/WomenClothing';
+import Cart from './views/Cart/Cart';
 
 
 const App = ()=> {
@@ -30,6 +31,7 @@ const App = ()=> {
             <Route path="/men's%20clothing" element={<MenClothing />} />
             <Route path="/women's%20clothing" element={<WomenClothing />} />
             <Route path='/About' element={<About />} />
+            <Route path='/cart' element={<Cart />} />
             <Route path='/:Category/:id' element={<ProductDetail />} />
             <Route path='/Login' element={<Login />} />
           </Routes>

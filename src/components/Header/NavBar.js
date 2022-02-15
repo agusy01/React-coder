@@ -42,7 +42,7 @@ return <nav className="Navigation">
                         <strong>Login</strong>
                     </Link>
                 </ul>
-                <CustomizedBadges />
+                <Link to='/cart'><CustomizedBadges /></Link>
             </div>
         </nav>
             

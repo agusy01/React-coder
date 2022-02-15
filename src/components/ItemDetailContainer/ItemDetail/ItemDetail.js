@@ -1,14 +1,31 @@
 import React, {useState} from 'react';
-import { Typography  } from '@mui/material/';
+import { Link } from 'react-router-dom';
+import { Typography, Button  } from '@mui/material/';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
 import Swal from 'sweetalert2';
 
 
 const ItemDetail = ({ data }) => {
-    const [counter, setCounter] = useState(1)
-    const [stock, setStock] = useState(5)
+    const [counter, setCounter] = useState(1);
+    const [stock, setStock] = useState(5);
+    const [visible, setVisible] = useState(true);
+    const [producto, setProducto] = useState(0);
+    
 
+    const view = () => {
+        if (producto => 1) {
+            setVisible(false)
+        }
+    }
+    
+    const counterUp= () => {
+        setCounter(counter + 1);
+    }
+
+    const counterDown= () => {
+        setCounter(counter - 1);
+    }
 
     const onAdd = () => {
         Swal.fire(
@@ -16,11 +33,13 @@ const ItemDetail = ({ data }) => {
             `You have added ${counter} items to the cart!`,
             'success'
         );
-
+        
         setStock(stock - counter)
-        setCounter(1)
+        setCounter(stock - counter)
+        setProducto(counter)
+        view()
     }
-
+    
     return (
         <div className='DetailBox'>
             <div>
@@ -36,10 +55,12 @@ const ItemDetail = ({ data }) => {
                 <Typography variant="h4" color="text.secondary">
                     $ {data.price}
                 </Typography>
-                <ItemCount initial={1} name={data.title}  onAdd={onAdd} stock={stock} counter={counter}></ItemCount>
+                {visible ? <ItemCount add={onAdd} counterUp={counterUp} counterDown={counterDown} counter={counter} stock={stock} /> : <Link to="/cart"><Button>Finalizar compra</Button></Link>}
             </div>
         </div>
     );
 }
 
 export default ItemDetail;
+
+
