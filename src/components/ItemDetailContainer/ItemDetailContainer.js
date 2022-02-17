@@ -5,8 +5,8 @@ import Spinner from '../Spinner/Spinner';
 import { useParams } from 'react-router-dom';
 
 
-const ItemDetailContainer = () => {
 
+const ItemDetailContainer = () => {
     const [detail,setDetail] =useState([])
     const [loading, setLoading] = useState(true);
     
