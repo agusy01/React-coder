@@ -7,8 +7,17 @@ import './itemCount.css';
 
 
 
-const ItemCount = ({ add, counter, stock, counterUp, counterDown }) => {
+const ItemCount = ({counter, add,  stock, setCounter }) => {
+    
 
+    const counterUp= () => {
+        setCounter(counter + 1);
+    }
+
+    const counterDown= () => {
+        setCounter(counter - 1);
+    }
+    
     return (
         <div className='container-count'>
             <div className='Count'>

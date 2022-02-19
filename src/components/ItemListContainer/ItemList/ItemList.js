@@ -12,7 +12,7 @@ const ItemList = () => {
 
     setTimeout(()=>{
     setLoading(false)
-    }, 2000)
+    }, 1000)
 
     useEffect(() => {
         axios('https://fakestoreapi.com/products')

@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
         .then((res) => setDetail(res.data));
         setTimeout(()=>{
             setLoading(false)
-        }, 2000);
+        }, 1000);
     }, [productId]); 
     
     return (

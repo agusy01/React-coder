@@ -8,49 +8,34 @@ import { CartContext } from '../../../Context/CartContext';
 
 
 const ItemDetail = ({ data }) => {
-    const { items, addToCart } = useContext(CartContext);
-
+    const { cart, addToCart } = useContext(CartContext);
+    
     const [counter, setCounter] = useState(1);
     const [stock, setStock] = useState(5);
     const [visible, setVisible] = useState(true);
-    const [product, setProduct] = useState(0);
     const [itemToAdd, setItem] = useState([])
     
     const view = () => {
-        if (product => 1) {
+        if (stock <= 5) {
             setVisible(false)
         }
     }
     
-    const counterUp= () => {
-        setCounter(counter + 1);
-    }
-
-    const counterDown= () => {
-        setCounter(counter - 1);
-    }
-
     const onAdd = () => {
         Swal.fire(
             'Good job!',
-            `You have added ${counter} items to the cart!`,
+            `You have added ${counter} of ${data.title} items to the cart!`,
             'success'
         );
         
         setStock(stock - counter)
         setCounter(stock - counter)
-        setProduct(counter)
         view()
-
+        setItem({id: data.id, title: data.title, qty: counter })
         
-    }
-
-    const addCart = () => {
-        itemToAdd.push({id: data.id, title: data.title, qty: product })
-        setItem(...itemToAdd)
-
         addToCart(itemToAdd)
     }
+    
     
     return (
         <div className='DetailBox'>
@@ -67,7 +52,7 @@ const ItemDetail = ({ data }) => {
                 <Typography variant="h4" color="text.secondary">
                     $ {data.price}
                 </Typography>
-                {visible ? <ItemCount add={onAdd} counterUp={counterUp} counterDown={counterDown} counter={counter} stock={stock} /> : <Link to="/cart"><Button onClick={addCart} item={[itemToAdd]}>Finalizar compra</Button></Link>}
+                {visible ? <ItemCount add={onAdd} counter={counter} stock={stock} setCounter={setCounter} /> : <Link to="/cart"><Button onClick={addToCart} >Finalizar compra</Button></Link>}
             </div>
         </div>
     );
