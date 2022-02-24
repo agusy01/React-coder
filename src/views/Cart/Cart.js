@@ -1,14 +1,35 @@
+import { Typography } from '@mui/material';
 import React from 'react';
 import CartContainer from '../../components/CartContainer/CartContainer';
+import './Cart.css';
 
 const Cart = () => {
   return (
-    <div>
-      <CartContainer img='https://i.pinimg.com/474x/65/f4/c3/65f4c3bb5588b943838a05ec58afb83b.jpg' title='Remera' price='100' quantity='1'/>
-      <CartContainer img='https://ddz5v9n0a16cg.cloudfront.net/webapp_webp/images/productos/c/0000024000/24750.webp' title='Pantalon' price='200' quantity='1'/>
-      <CartContainer img='https://bamadventureuy.com/ventas/71-home_default/musculosas-clasicas-unisex.jpg' title='Musculosa' price='50' quantity='1'/>
-    </div>
+    <div className='Background'>
+    <div className='Container'>
+          <div className='Items'>
+            <Typography variant="h6" color="text.secondary" component="p">
+              ITEMS
+            </Typography>
+          </div>
+          <div className='Variants'>
+        <Typography variant="h6" color="text.secondary" component="p" className='Price'>
+          PRICE
+        </Typography>
+        <Typography variant="h6" color="text.secondary" component="p" className='Price'>
+          AMOUNT
+        </Typography>
+        <Typography variant="h6" color="text.secondary" component="p" className='Price Icon'>
+          SUBTOTAL
+          </Typography>
+          </div>
+      </div>
+      <CartContainer />
+      </div>
   )
 }
 
+
 export default Cart;
+
+

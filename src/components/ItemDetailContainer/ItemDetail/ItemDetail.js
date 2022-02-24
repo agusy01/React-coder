@@ -1,32 +1,37 @@
 import React, {useContext, useState} from 'react';
-import { Link } from 'react-router-dom';
-import { Typography, Button  } from '@mui/material/';
+import { Typography, Button} from '@mui/material/';
 import ItemCount from '../ItemCount/ItemCount';
 import './ItemDetail.css';
-import Swal from 'sweetalert2';
 import { CartContext } from '../../../Context/CartContext';
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 const ItemDetail = ({ data }) => {
     const cartContext = useContext(CartContext);
-    const {cart, addToCart} =cartContext
-    
+    const { addToCart } =cartContext
     
     const [stock, setStock] = useState(5);
+    const [counter, setCounter] = useState(1);
     const [visible, setVisible] = useState(true);
-    
+
     const view = () => {
         if (stock <= 5) {
             setVisible(false)
         }
     }
     
-    const onAdd = (counter) => {
-        setStock(stock - counter)
-        view()
-        addToCart(data, counter)
-    }
-    
+    const onAdd = () => {
+        Swal.fire(
+            'Good job!',
+            `You have added ${counter} of ${data.title} to the cart`,
+            'success'
+        );
+
+        view();
+        addToCart(data, counter);
+    };
+
     return (
         <div className='DetailBox'>
             <div>
@@ -42,7 +47,7 @@ const ItemDetail = ({ data }) => {
                 <Typography variant="h4" color="text.secondary">
                     $ {data.price}
                 </Typography>
-                {visible ? <ItemCount onAdd={onAdd}  stock={stock} /> : <Link to="/cart"><Button onClick={addToCart} >Finalizar compra</Button></Link>}
+                {visible ? <ItemCount onAdd={onAdd} counter={counter} setCounter={setCounter} stock={stock}/> : <Link to="/cart"><Button >Finalizar compra</Button></Link>}
             </div>
         </div>
     );

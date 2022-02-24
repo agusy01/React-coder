@@ -23,7 +23,7 @@ const CustomizedBadges = () => {
 
   return (
     <IconButton aria-label="cart" sx={{ padding: 0}}>
-      <StyledBadge badgeContent={cart.length} color="secondary">
+      <StyledBadge badgeContent={0} color="secondary">
         <ShoppingCart sx={{ fontSize: 24 }} />
       </StyledBadge>
     </IconButton>

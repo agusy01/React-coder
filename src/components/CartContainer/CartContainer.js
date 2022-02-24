@@ -1,39 +1,21 @@
-import { Button, CardActions, Divider, Typography } from '@mui/material';
-import * as React from 'react';
-import './CartContainer.css';
-import CancelIcon from '@mui/icons-material/Cancel';
-import { red } from '@mui/material/colors';
+import React, { useContext} from 'react';
+import { CartContext } from '../../Context/CartContext';
+import Cart from './Cart'
 
 
-const CartContainer = ({ title, price, quantity, img }) => {
+const CartContainer = () => {
+  const cartContext = useContext(CartContext);
+  const { cart } = cartContext;
   
-  return (
-    <div className='Cart'>
-      <div className='Cart-Container'>
-      <img src={img} alt='Remera' />
-      <div className='Text-Container'>
-      <Typography variant="h3" color="text.secondary" component="div">
-        {title}
-      </Typography>
-
-      <Divider />
-      <Typography variant="h6" color="text.secondary" component="div">
-        $ {price}
-      </Typography>
-      <Typography variant="h6" color="text.secondary" component="div">
-        Quantity: {quantity}
-      </Typography>
-      <CardActions className='Icon-Container'>
-        <Button>
-          <CancelIcon color='warning' className='Delete-Icon'/>
-        </Button>
-      </CardActions>
-
-
+  return  (cart.map((product) => {
+    return (
+      <div key={product.id}>
+          <Cart quantity={product.cant} title={product.title} price={product.price} img={product.image} category={product.category}/>
       </div>
-      </div>
-    </div>
-  );
+    )
+    })
+  )
 }
 
-export default CartContainer
+
+export default CartContainer;
