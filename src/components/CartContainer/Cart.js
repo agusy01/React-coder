@@ -8,12 +8,12 @@ import { CartContext } from '../../Context/CartContext';
 
 const CartContainer = ({title, price, quantity, img, category}) => {
   const cartContext = useContext(CartContext);
-  const { deleteItem } = cartContext;
+  const { deleteItem, deleteCart } = cartContext;
   
   return (
     <div className='Cart'>
       <div className='Item-Container'>
-      <img src={img} alt='Remera' />
+      <img src={img} alt={title} />
       <div className='Text-Container'>
         <div className='Cart-Title'>
             <Typography variant="h6" color="text.secondary" component="p">
@@ -37,7 +37,9 @@ const CartContainer = ({title, price, quantity, img, category}) => {
             <IconButton onClick={deleteItem}>
                 <DeleteForeverIcon color='warning' className='Delete-Icon' fontSize="medium"/>
             </IconButton>
-            
+            <IconButton aria-label="" onClick={deleteCart}>
+            <DeleteForeverIcon color='warning' className='Delete-Icon' fontSize="medium"/>
+            </IconButton>
             </Typography>
         </div>
     </div>

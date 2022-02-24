@@ -19,11 +19,11 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const CustomizedBadges = () => {
 
   const cartContext = useContext(CartContext);
-  const { cart } = cartContext;
+  const { quant } = cartContext;
 
   return (
     <IconButton aria-label="cart" sx={{ padding: 0}}>
-      <StyledBadge badgeContent={0} color="secondary">
+      <StyledBadge badgeContent={quant} color="secondary">
         <ShoppingCart sx={{ fontSize: 24 }} />
       </StyledBadge>
     </IconButton>
