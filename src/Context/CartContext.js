@@ -12,7 +12,7 @@ const CartProvider = ({ children}) => {
     }, [cart])
 
     const addToCart = (itemToAdd, cant) => {
-        if(cart.some(el => el.id === itemToAdd.id)){
+        if(cart.some(e => e.id === itemToAdd.id)){
             
             let index = cart.findIndex(e => e.id === itemToAdd.id);
             let product = cart[index];
@@ -39,12 +39,9 @@ const CartProvider = ({ children}) => {
     
     } 
 
-    const deleteCart = () => {
-        setCart([]);
-    };
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, deleteCart, deleteItem}}>{children}</CartContext.Provider>
+        <CartContext.Provider value={{ cart, addToCart, deleteItem}}>{children}</CartContext.Provider>
         )
         
 };

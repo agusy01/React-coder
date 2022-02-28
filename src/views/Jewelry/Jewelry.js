@@ -1,22 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import Item from '../../components/ItemListContainer/Item/Item';
 import Spinner from '../../components/Spinner/Spinner';
+import {db} from '../../Firebase/FirebaseConfig';
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 
 
 const Jewelry = () => {
-    const [jewelry, setJewelry] = useState([]);
+    const [product, setProduct] = useState([]);
     const [loading , setLoading] =useState(true)
     
     setTimeout(()=>{
         setLoading(false)
-        }, 2000)
+        }, 1000)
 
     useEffect(() => {
-        axios(`https://fakestoreapi.com/products/category/jewelery`)
-        .then((res) => setJewelry(res.data))
-    }, []);
+        
+            const getProducts = async () =>{
+
+                const productRef = collection(db, 'store');
+                const q = query(productRef, where('category', '==', 'jewelery'));
+                const docs = [];
+                const querySnapshot = await getDocs(q);
+                
+                querySnapshot.forEach((doc) => {
+                    
+                    docs.push({...doc.data(), id: doc.id});
+                });
+                
+                setProduct(docs);
+            };
+            getProducts()
+        }, []);
+    
     
     return (
         <div>
@@ -24,9 +40,9 @@ const Jewelry = () => {
                 <Spinner />
             ) : (
             <div className='Card'>
-            {jewelry.map((jewelry) => {
-                return (<div key={jewelry.id} className='Products'>
-                    <Item data={jewelry}/>
+            {product.map((product) => {
+                return (<div key={product.id} className='Products'>
+                    <Item product={product}/>
                 </div>
                 )
             })}

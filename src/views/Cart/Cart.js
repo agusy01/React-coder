@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Typography} from '@mui/material';
 import React from 'react';
 import CartContainer from '../../components/CartContainer/CartContainer';
 import './Cart.css';
@@ -6,6 +6,9 @@ import './Cart.css';
 const Cart = () => {
   return (
     <div className='Background'>
+      <div>
+            <h3 className='Your-Bag'>YOUR BAG</h3>
+      </div>
     <div className='Container'>
           <div className='Items'>
             <Typography variant="h6" color="text.secondary" component="p">

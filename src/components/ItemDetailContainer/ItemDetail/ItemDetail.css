@@ -18,3 +18,8 @@
     width: 700px;
     max-height: 650px;
 }
+
+.fix-Button{
+    width: fit-content;
+    margin: 0 auto;
+}

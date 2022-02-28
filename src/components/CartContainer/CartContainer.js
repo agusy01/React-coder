@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext, useState} from 'react';
 import { CartContext } from '../../Context/CartContext';
 import Cart from './Cart'
 
@@ -6,7 +6,7 @@ import Cart from './Cart'
 const CartContainer = () => {
   const cartContext = useContext(CartContext);
   const { cart } = cartContext;
-  
+
   return  (cart.map((product) => {
     return (
       <div key={product.id}>

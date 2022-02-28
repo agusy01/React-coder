@@ -2,40 +2,50 @@ import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 import './ItemList.css';
 import Spinner from '../../Spinner/Spinner'
-import axios from 'axios';
 
-
+import {db} from '../../../Firebase/FirebaseConfig';
+import { collection, query, getDocs } from "firebase/firestore";
 
 const ItemList = () => {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true)
 
     setTimeout(()=>{
-    setLoading(false)
-    }, 1000)
+        setLoading(false)
+        }, 1000)
 
-    useEffect(() => {
-        axios('https://fakestoreapi.com/products')
-        .then((res) => setProduct(res.data))
-    }, []);
+        useEffect(() => {
+            const getProducts = async () =>{
+                const q = query(collection(db, 'store'));
+                const docs = [];
+                const querySnapshot = await getDocs(q);
+                
+                querySnapshot.forEach((doc) => {
+                    
+                    docs.push({...doc.data(), id: doc.id});
+                });
+                console.log(docs)
+                setProduct(docs);
+            };
+            getProducts()
+        }, []);
 
-    return (
-        <div>
-            {loading ? (
-                <Spinner />
-            ) : (
-            <div className='Card'>
-            {product.map((product) =>{
-                return (<div key={product.id} className='Products'>
-                        <Item data={product} />
-                    </div>
-                )
-            })}
-            </div>)}
-        </div>
-    );
+        return (
+            <div>
+                {loading ? (
+                    <Spinner />
+                ) : (
+                <div className='Card'>
+                {product.map((product) =>{
+                    return (<div key={product.id} className='Products'>
+                            <Item product={product} />
+                        </div>
+                    )
+                })}
+                </div>)}
+            </div>
+        );
 }
 
 
-export default ItemList;
-
+export default ItemList

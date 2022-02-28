@@ -7,11 +7,11 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
 
-const ItemDetail = ({ data }) => {
+const ItemDetail = ({ detail }) => {
     const cartContext = useContext(CartContext);
     const { addToCart } =cartContext
     
-    const [stock, setStock] = useState(5);
+    const [stock, setStock] = useState(detail.stock);
     const [counter, setCounter] = useState(1);
     const [visible, setVisible] = useState(true);
 
@@ -24,30 +24,30 @@ const ItemDetail = ({ data }) => {
     const onAdd = () => {
         Swal.fire(
             'Good job!',
-            `You have added ${counter} of ${data.title} to the cart`,
+            `You have added ${counter} of ${detail.title} to the cart`,
             'success'
         );
 
         view();
-        addToCart(data, counter);
+        addToCart(detail, counter);
     };
 
     return (
         <div className='DetailBox'>
             <div>
-                <img src={data.image} alt='Imagen' className='ImagenDetail' />
+                <img src={detail.image} alt='Imagen' className='ImagenDetail' />
             </div>
             <div className='DetailText'>
             <Typography gutterBottom variant="h4" component="div">
-                    {data.title}
+                    {detail.title}
                 </Typography>
                 <Typography variant="h6" color="text.secondary">
-                    {data.description}
+                    {detail.description}
                 </Typography>
                 <Typography variant="h4" color="text.secondary">
-                    $ {data.price}
+                    $ {detail.price}
                 </Typography>
-                {visible ? <ItemCount onAdd={onAdd} counter={counter} setCounter={setCounter} stock={stock}/> : <Link to="/cart"><Button >Finalizar compra</Button></Link>}
+                {visible ? <ItemCount onAdd={onAdd} counter={counter} setCounter={setCounter} stock={detail.stock}/> : <Link to="/cart" className='fix-Button'><Button >Finalizar compra</Button></Link>}
             </div>
         </div>
     );

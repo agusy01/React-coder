@@ -1,9 +1,10 @@
 .Card{
     display: flex;
-    padding: 2rem;
+    padding: 3rem 5rem;
     flex-wrap: wrap;
     justify-content: center;
     background-color: #fffaf0;
+    height: 1200px;
 }
 
 .Products{

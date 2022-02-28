@@ -8,8 +8,12 @@ import { CartContext } from '../../Context/CartContext';
 
 const CartContainer = ({title, price, quantity, img, category}) => {
   const cartContext = useContext(CartContext);
-  const { deleteItem, deleteCart } = cartContext;
+  const { deleteItem } = cartContext;
   
+  
+    const num = (price * quantity);
+    
+    
   return (
     <div className='Cart'>
       <div className='Item-Container'>
@@ -31,14 +35,11 @@ const CartContainer = ({title, price, quantity, img, category}) => {
             <Typography variant="subtitle1" color="text.secondary" component="p" className='Price '>
             {quantity}
             </Typography>
-            <Typography variant="subtitle1" color="text.secondary" component="p" className='Price Icon'>
-            $ {price*quantity}
+            <Typography variant="subtitle1" color="text.secondary" component="div" className='Price Icon'>
+            $ {num.toFixed(2)}
             
             <IconButton onClick={deleteItem}>
-                <DeleteForeverIcon color='warning' className='Delete-Icon' fontSize="medium"/>
-            </IconButton>
-            <IconButton aria-label="" onClick={deleteCart}>
-            <DeleteForeverIcon color='warning' className='Delete-Icon' fontSize="medium"/>
+                <DeleteForeverIcon className='Delete-Icon' fontSize="medium"/>
             </IconButton>
             </Typography>
         </div>

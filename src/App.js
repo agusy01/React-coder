@@ -5,6 +5,9 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 // Provider
 import CartProvider from './Context/CartContext';
 
+// FIREBASE - FIRESTORE
+import {db} from './Firebase/FirebaseConfig';
+
 // Components
 import NavBar from './components/Header/NavBar';
 
