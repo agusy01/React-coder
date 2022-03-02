@@ -11,14 +11,16 @@
     background-color: #fffaf0;
     padding: 30px 0;
     height: 1000px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .Your-Bag{
     text-align: left;
-    margin-left: 520px;
     font-size: 3rem;
     font-weight: 400;
     margin-bottom: 3rem;
+    margin-left:281px;
 }
 
 .Variants{
@@ -39,7 +41,46 @@
     text-align: left;
 }
 
+.CartItems{
+    width: 80%;
+}
+
 .Items p {
     font-weight: 700;
     font-size: 1.6vh;
 }
+
+.CheckOut{
+    width: 20%;
+    background-color: beige;
+    height: fit-content;
+    margin: 100px 100px 0px 0px;
+    border-radius: 3px;
+}
+
+.CheckOutText{
+    border-bottom: 1px solid grey;
+    text-align: left;
+    padding: 10px;
+}
+
+.CheckOut p{
+    border-bottom: 1px solid grey;
+    text-align: left;
+    padding: 10px;
+}
+
+.CheckOut div{
+    text-align: left;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+.CheckOut button{
+    margin: 20px;
+    width: 89%;
+    background-color: #FEF6E8;
+    text-decoration: none;
+    border: 1px solid;
+}
+

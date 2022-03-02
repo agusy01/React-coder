@@ -4,7 +4,8 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: #fffaf0;
-    height: 1200px;
+    height: fit-content;
+    min-height: 1000px;
 }
 
 .Products{

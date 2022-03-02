@@ -11,7 +11,7 @@ const CartContainer = ({title, price, quantity, img, category}) => {
   const { deleteItem } = cartContext;
   
   
-    const num = (price * quantity);
+  const num = (price * quantity);
     
     
   return (

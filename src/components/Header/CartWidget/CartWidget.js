@@ -16,18 +16,20 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 
-const CustomizedBadges = () => {
+const CartWidget = () => {
 
   const cartContext = useContext(CartContext);
-  const { quant } = cartContext;
-
+  
+  let itemsPush = 0
+  
+  cartContext.cart.map(x => itemsPush=x.cant+itemsPush)
   return (
     <IconButton aria-label="cart" sx={{ padding: 0}}>
-      <StyledBadge badgeContent={quant} color="secondary">
+      <StyledBadge badgeContent={itemsPush} color="secondary">
         <ShoppingCart sx={{ fontSize: 24 }} />
       </StyledBadge>
     </IconButton>
   );
 }
 
-export default CustomizedBadges;
+export default CartWidget;

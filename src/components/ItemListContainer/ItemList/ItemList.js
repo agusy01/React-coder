@@ -24,7 +24,7 @@ const ItemList = () => {
                     
                     docs.push({...doc.data(), id: doc.id});
                 });
-                console.log(docs)
+                
                 setProduct(docs);
             };
             getProducts()

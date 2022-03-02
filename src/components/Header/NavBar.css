@@ -13,10 +13,6 @@
     width: 800px;
 }
 
-.Login{
-    padding: 0px 20px;
-}
-
 .Navigation{
     display: flex;
     justify-content: space-around;

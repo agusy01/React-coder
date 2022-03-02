@@ -1,16 +1,8 @@
 import './NavBar.css';
-import CustomizedBadges from './CartWidget/CartWidget';
+import CartWidget from './CartWidget/CartWidget';
 import { Link} from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 const NavBar = () => {
-    const [category, setCategory] = useState([]);
-
-    useEffect(() => {
-        axios(`https://fakestoreapi.com/products/categories`)
-        .then((res) => setCategory(res.data))
-    }, []);
 
 
 return <nav className="Navigation">
@@ -20,16 +12,16 @@ return <nav className="Navigation">
             <div className='DivNav'>
                 <ul>
                     <Link to='/electronics' className='Link'>
-                        {category[0]}
+                        Electronics
                     </Link>
                     <Link to='/jewelry' className='Link'>
-                        {category[1]}
+                        Jewelry
                     </Link>
                     <Link to="/men's%20clothing" className='Link'>
-                        {category[2]}
+                        Men's Clothing
                     </Link>
                     <Link to="/women's%20clothing" className='Link'>
-                        {category[3]}
+                        Women's Clothing
                     </Link>
                     <Link to='/About' className='Link'>
                         About Us
@@ -37,12 +29,7 @@ return <nav className="Navigation">
                 </ul>
             </div>
             <div className="DivFix">
-                <ul>
-                    <Link to='/Login' className='Link Login'>
-                        <strong>Login</strong>
-                    </Link>
-                </ul>
-                <Link to='/cart'><CustomizedBadges /></Link>
+                <Link to='/cart'><CartWidget /></Link>
             </div>
         </nav>
             

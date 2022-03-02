@@ -16,7 +16,7 @@ const ItemDetail = ({ detail }) => {
     const [visible, setVisible] = useState(true);
 
     const view = () => {
-        if (stock <= 5) {
+        if (stock <= detail.stock) {
             setVisible(false)
         }
     }
@@ -27,7 +27,6 @@ const ItemDetail = ({ detail }) => {
             `You have added ${counter} of ${detail.title} to the cart`,
             'success'
         );
-
         view();
         addToCart(detail, counter);
     };
