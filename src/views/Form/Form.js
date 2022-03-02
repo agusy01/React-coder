@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import PurchaseForm from '../../components/Form/PurchaseForm';
 
 const Form = () => {
   return (
-    <div className='Background'>Form</div>
+    <div>
+        <PurchaseForm />
+    </div>
   )
 }
 

@@ -8,9 +8,9 @@ import './Cart.css';
 
 const Cart = () => {
   const cartContext = useContext(CartContext);
-  const { total } =cartContext
-  let itemsPush = 0;
-  cartContext.cart.map(x => itemsPush=x.cant+itemsPush);
+  const { total, itemsPush } =cartContext
+  /* let itemsPush = 0;
+  cartContext.cart.map(x => itemsPush=x.cant+itemsPush); */
   
   return (
     <div className='Background'>
@@ -48,7 +48,7 @@ const Cart = () => {
               Total Products: {itemsPush}
         </Typography>
         <Typography variant="h6" color="text.secondary" component="p" >
-              <strong>Total Order: $ {total}</strong>
+              <strong>Total Order: $ {total.toFixed(2)}</strong>
         </Typography>
         <Typography variant="subtitle2" color="text.secondary" component="p" >
           Please carefully check the details of your order before proceeding to the next step.

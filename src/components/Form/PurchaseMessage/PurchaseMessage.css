@@ -1,0 +1,6 @@
+.AlertaCompra{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+}

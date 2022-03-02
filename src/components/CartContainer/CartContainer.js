@@ -19,11 +19,11 @@ const CartContainer = () => {
   } else{
   return  (cart.map((product) => {
     return (
-      <div>
+      
         <div key={product.id}>
             <Cart quantity={product.cant} title={product.title} price={product.price} img={product.image} category={product.category}/>
         </div>
-      </div>
+      
     )
     })
   )

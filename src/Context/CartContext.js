@@ -10,6 +10,9 @@ const CartProvider = ({ children }) => {
     let total = 0;
     cart.map(x => total=x.cant*x.price+total);
 
+    let itemsPush = 0;
+    cart.map(x => itemsPush=x.cant+itemsPush);
+
     const addToCart = (itemToAdd, cant) => {
         if(cart.some(e => e.id === itemToAdd.id)){
             
@@ -42,7 +45,7 @@ const CartProvider = ({ children }) => {
     
 
     return (
-        <CartContext.Provider value={{ cart, deleteItem, addToCart, total }}>{children}</CartContext.Provider>
+        <CartContext.Provider value={{ cart, deleteItem, addToCart, total, itemsPush, setCart }}>{children}</CartContext.Provider>
         )
         
 };
