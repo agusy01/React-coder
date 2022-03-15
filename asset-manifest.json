@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/reposi.../static/css/main.9a8892a1.css",
+    "main.js": "/reposi.../static/js/main.9d659671.js",
+    "static/media/avatar-11.png": "/reposi.../static/media/avatar-11.9d1676ecf823356e3fec.png",
+    "static/media/avatarM.png": "/reposi.../static/media/avatarM.b71d02483655bdd6a3db.png",
+    "index.html": "/reposi.../index.html",
+    "main.9a8892a1.css.map": "/reposi.../static/css/main.9a8892a1.css.map",
+    "main.9d659671.js.map": "/reposi.../static/js/main.9d659671.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9a8892a1.css",
+    "static/js/main.9d659671.js"
+  ]
+}
