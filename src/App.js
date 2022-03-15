@@ -24,7 +24,7 @@ const App = ()=> {
   
     return(
       <CartProvider>
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}> 
           <div className='App'>
             <NavBar />
             <Routes>
