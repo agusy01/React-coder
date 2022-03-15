@@ -8,9 +8,9 @@ import PurchaseMessage from './PurchaseMessage/PurchaseMessage';
 
 
 const initialState= {
-    fullname: "",
-    email: "",
-    address: "",
+    name: "",
+    lastName: "",
+    address: ""
 }
 
 const PurchaseForm = () => {
@@ -21,25 +21,21 @@ const PurchaseForm = () => {
     const [values, setValues] = useState(initialState);
 
     const [purchaseId, setPurchaseId] = useState('');
-    console.log(values.fullname)
+
     //capturo la fecha para pasarla despues al docRef y que me de esa info en firebase
     const d = new Date();
     let date = `${d.getDate()}/${1 + d.getMonth()}/${d.getFullYear()}`;
 
     //Tomo los valores de los campos del form
     const getValues = (e) => {
-        const {value, fullname} = e.target;
-        setValues({...values, [fullname]: value})
+        const {value, name} = e.target;
+        setValues({...values, [name]: value});
     }
-    /* const getValues = (e) => {
-        const {value, fullname} = e.target;
-        console.log({...values, [fullname]: value});
-    }
- */
+
     const submit = async (e) => {
         e.preventDefault();
         const docRef = await addDoc(collection(db, "purchases"), {
-            values, items: cart, date: date, total: total
+            buyer: values, items: cart, date: date, total: total
         });
         setPurchaseId(docRef.id);
         setValues(initialState);
@@ -56,15 +52,15 @@ const PurchaseForm = () => {
     return(
         <div className='Fondo'>
             <form className="form" onSubmit={submit}>
-                <div className="inputContainer">
+                <div className="form-floating mb-3 inputContainer">
                     <label htmlFor="floatingName">Full Name</label>
-                    <input type="text" name="fullName" value={values.fullname} onChange={getValues} className="form-control" id="floatingName" placeholder="Full Name" required/>
+                    <input type="text" name="name" value={values.name} onChange={getValues} className="form-control" id="floatingName" placeholder="Full Name" required/>
                 </div>
-                <div className="inputContainer">
-                    <label htmlFor="floatingLastName">Email</label>
-                    <input type="text" name="email" value={values.email} onChange={getValues} className="form-control" id="floatingLastName" placeholder="Email" required/>
+                <div className="form-floating mb-3 inputContainer">
+                    <label htmlFor="floatingLastName">Last name</label>
+                    <input type="text" name="lastName" value={values.lastName} onChange={getValues} className="form-control" id="floatingLastName" placeholder="Last name" required/>
                 </div>
-                <div className="inputContainer">
+                <div className="form-floating mb-3 inputContainer">
                     <label htmlFor="floatingAddress">Address</label>
                     <input type="text" name="address" value={values.address} onChange={getValues} className="form-control" id="floatingAddress" placeholder="Address" required/>
                 </div>
