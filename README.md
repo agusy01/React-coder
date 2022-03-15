@@ -18,4 +18,12 @@ Para la realización de este proyecto he decidido realizar un e-commerce de vent
 
 #Home
 
+![image](https://user-images.githubusercontent.com/91961226/158488544-32bac43d-df4e-4303-b360-8955190d7fe6.png)
+
+#Item Detail
+
+![image](https://user-images.githubusercontent.com/91961226/158488598-0b4ab26f-4539-4fd8-94da-4d0cf14e6c08.png)
+
+#Cart
+
 ![image](https://user-images.githubusercontent.com/91961226/158488456-8e225e6f-2001-4621-8a34-b7d6cadf74db.png)
