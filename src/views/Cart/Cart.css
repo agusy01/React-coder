@@ -15,7 +15,7 @@
     justify-content: space-evenly;
 }
 
-.Your-Bag{
+.YourBag{
     text-align: left;
     font-size: 3rem;
     font-weight: 400;
@@ -27,7 +27,6 @@
     display: flex;
     width: 30%;
     justify-content: space-around;
-    
 }
 
 .Variants p {

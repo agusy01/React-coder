@@ -6,7 +6,17 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
+    const [enableCheckout, setEnableCheckout] = useState(false);
     
+    
+    const enable = useEffect(() =>{
+            if(cart.length === 0 ){
+                setEnableCheckout(false)
+            } else {
+                setEnableCheckout(true)
+            }
+    }, [cart])
+
     let total = 0;
     cart.map(x => total=x.cant*x.price+total);
 
@@ -45,7 +55,7 @@ const CartProvider = ({ children }) => {
     
 
     return (
-        <CartContext.Provider value={{ cart, deleteItem, addToCart, total, itemsPush, setCart }}>{children}</CartContext.Provider>
+        <CartContext.Provider value={{ cart, deleteItem, addToCart, total, itemsPush, setCart, enable, enableCheckout }}>{children}</CartContext.Provider>
         )
         
 };

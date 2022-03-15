@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ detail }) => {
     const cartContext = useContext(CartContext);
-    const { addToCart } =cartContext
+    const { addToCart, enable } =cartContext;
     
-    const [stock, setStock] = useState(detail.stock);
+    const stock = detail.stock;
     const [counter, setCounter] = useState(1);
     const [visible, setVisible] = useState(true);
 
@@ -46,7 +46,7 @@ const ItemDetail = ({ detail }) => {
                 <Typography variant="h4" color="text.secondary">
                     $ {detail.price}
                 </Typography>
-                {visible ? <ItemCount onAdd={onAdd} counter={counter} setCounter={setCounter} stock={detail.stock}/> : <Link to="/cart" className='fix-Button'><Button >Finalizar compra</Button></Link>}
+                {visible ? <ItemCount onAdd={onAdd} counter={counter} setCounter={setCounter} stock={detail.stock}/> : <div><Link to="/" className='fix-Button'><Button onClick={enable}>Continue buying</Button></Link><Link to="/cart" className='fix-Button'><Button onClick={enable} >Go to checkout</Button></Link></div>}
             </div>
         </div>
     );

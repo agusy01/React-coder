@@ -1,5 +1,5 @@
 import { Button, Typography} from '@mui/material';
-import React, { useContext } from 'react';
+import React, { useContext} from 'react';
 import { Link } from 'react-router-dom';
 import CartContainer from '../../components/CartContainer/CartContainer';
 import { CartContext } from '../../Context/CartContext';
@@ -8,15 +8,13 @@ import './Cart.css';
 
 const Cart = () => {
   const cartContext = useContext(CartContext);
-  const { total, itemsPush } =cartContext
-  /* let itemsPush = 0;
-  cartContext.cart.map(x => itemsPush=x.cant+itemsPush); */
-  
+  const {total, itemsPush, enableCheckout } =cartContext;
+  console.log(enableCheckout)
   return (
     <div className='Background'>
       <div className='CartItems'>
         <div>
-              <h3 className='Your-Bag'>YOUR BAG</h3>
+              <h3 className='YourBag'>YOUR BAG</h3>
         </div>
         <div className='Container'>
             <div className='Items'>
@@ -47,16 +45,13 @@ const Cart = () => {
         <Typography variant="h6" color="text.secondary" component="div" >
               Total Products: {itemsPush}
         </Typography>
-        <Typography variant="h6" color="text.secondary" component="p" >
+        <Typography variant="h6" color="text.secondary" component="p">
               <strong>Total Order: $ {total.toFixed(2)}</strong>
         </Typography>
         <Typography variant="subtitle2" color="text.secondary" component="p" >
           Please carefully check the details of your order before proceeding to the next step.
         </Typography>
-        <Link to='/FinishPurchase' ><Button >
-          CHECKOUT
-        </Button>
-        </Link>
+        {enableCheckout ? <Link to='/FinishPurchase' ><Button>CHECKOUT</Button></Link> : <Button disabled>CHECKOUT</Button>}
       </div>
     </div>
   )
@@ -64,5 +59,3 @@ const Cart = () => {
 
 
 export default Cart;
-
-
