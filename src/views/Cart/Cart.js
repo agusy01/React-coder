@@ -9,7 +9,6 @@ import './Cart.css';
 const Cart = () => {
   const cartContext = useContext(CartContext);
   const {total, itemsPush, enableCheckout } =cartContext;
-  console.log(enableCheckout)
   return (
     <div className='Background'>
       <div className='CartItems'>

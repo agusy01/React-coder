@@ -6,7 +6,7 @@ import { CartContext } from '../../Context/CartContext';
 
 
 
-const CartContainer = ({title, price, quantity, img, category}) => {
+const Cart = ({title, price, quantity, img, category, id}) => {
   const cartContext = useContext(CartContext);
   const { deleteItem } = cartContext;
   
@@ -38,7 +38,7 @@ const CartContainer = ({title, price, quantity, img, category}) => {
             <Typography variant="subtitle1" color="text.secondary" component="div" className='Price Icon'>
             $ {num.toFixed(2)}
             
-            <IconButton onClick={deleteItem}>
+            <IconButton onClick={() => deleteItem(title)}>
                 <DeleteForeverIcon className='Delete-Icon' fontSize="medium"/>
             </IconButton>
             </Typography>
@@ -49,4 +49,4 @@ const CartContainer = ({title, price, quantity, img, category}) => {
   );
 }
 
-export default CartContainer
+export default Cart;

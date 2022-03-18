@@ -8,14 +8,16 @@ const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [enableCheckout, setEnableCheckout] = useState(false);
     
-    
+    useEffect(() =>{
+        console.log(cart)
+    }, [cart])
     const enable = useEffect(() =>{
             if(cart.length === 0 ){
                 setEnableCheckout(false)
             } else {
                 setEnableCheckout(true)
             }
-    }, [cart])
+    }, [cart]);
 
     let total = 0;
     cart.map(x => total=x.cant*x.price+total);
@@ -23,11 +25,13 @@ const CartProvider = ({ children }) => {
     let itemsPush = 0;
     cart.map(x => itemsPush=x.cant+itemsPush);
 
+    
     const addToCart = (itemToAdd, cant) => {
         if(cart.some(e => e.id === itemToAdd.id)){
             
             let index = cart.findIndex(e => e.id === itemToAdd.id);
             let product = cart[index];
+            console.log(product)
             product.cant = product.cant + cant;
             
             const newCart = [...cart];
@@ -41,15 +45,11 @@ const CartProvider = ({ children }) => {
             setCart([...cart, product]);
         }
     };
-    
-    const deleteItem = ( id ) => {
-        const newCart = [...cart];
-        
-        let index = newCart.findIndex(e => e.id === id);
-        newCart.splice( index, 1);
 
-        setCart([...newCart]);
-    } 
+    const deleteItem = (productName) => {
+            const updatedProducts = cart.filter(product => productName !== product.title);
+            setCart(updatedProducts);
+    }
     
     
     

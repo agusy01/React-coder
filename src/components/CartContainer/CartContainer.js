@@ -21,7 +21,7 @@ const CartContainer = () => {
     return (
       
         <div key={product.id}>
-            <Cart quantity={product.cant} title={product.title} price={product.price} img={product.image} category={product.category}/>
+            <Cart quantity={product.cant} title={product.title} price={product.price} img={product.image} category={product.category} id={product.idnum}/>
         </div>
       
     )
